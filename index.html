@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ByteForge | Intelligence Workspace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand"><span class="brand-mark">B</span><span>ByteForge</span></div>
+        <p class="workspace-label">INTELLIGENCE WORKSPACE</p>
+        <nav>
+          <button class="nav-item active" data-view="overview"><span>▦</span> Overview</button>
+          <button class="nav-item" data-view="graph"><span>◌</span> Knowledge Graph</button>
+          <button class="nav-item" data-view="cases"><span>▤</span> Case Intelligence</button>
+          <button class="nav-item" data-view="map"><span>⌖</span> Geo Intelligence</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="secure"><span class="pulse"></span> Secure workspace</div>
+          <button class="user"><span class="avatar">AK</span><span>Analyst<br/><small>Investigation Unit</small></span><b>⌄</b></button>
+        </div>
+      </aside>
+
+      <main>
+        <header>
+          <div><p class="eyebrow" id="section-kicker">OVERVIEW</p><h1 id="page-title">Good morning, Analyst.</h1></div>
+          <div class="header-actions"><button class="icon-button" aria-label="Notifications">♧<i></i></button><button class="primary" id="ingest-btn">+ Ingest case data</button></div>
+        </header>
+
+        <section class="content-view active" id="overview">
+          <div class="status-bar"><span class="live-dot"></span><b>Cross-case analysis complete</b><span>12 new evidence-linked connections were identified today.</span><button data-view="cases">Review findings →</button></div>
+          <div class="metrics">
+            <article><p>ACTIVE CASES</p><strong>24</strong><small><em>↑ 3</em> this week</small></article>
+            <article><p>CONNECTED ENTITIES</p><strong>1,284</strong><small><em>↑ 86</em> this week</small></article>
+            <article><p>HIGH-PRIORITY LINKS</p><strong class="risk">17</strong><small><em>↑ 4</em> require review</small></article>
+            <article><p>DOCUMENTS ANALYZED</p><strong>3,592</strong><small>Last sync 4 min ago</small></article>
+          </div>
+
+          <div class="grid-main">
+            <section class="panel graph-panel"><div class="panel-heading"><div><p class="eyebrow">NETWORK OVERVIEW</p><h2>Relationship landscape</h2></div><button class="text-button" data-view="graph">Explore graph ↗</button></div><div class="legend"><span><i class="dot person"></i>Person</span><span><i class="dot org"></i>Organization</span><span><i class="dot phone"></i>Device</span><span><i class="line"></i>Observed link</span></div><div id="mini-graph" class="network-canvas"></div></section>
+            <section class="panel priority-panel"><div class="panel-heading"><div><p class="eyebrow">PRIORITY QUEUE</p><h2>Signals needing review</h2></div><button class="more">•••</button></div><div id="signal-list"></div></section>
+          </div>
+
+          <section class="panel activity-panel"><div class="panel-heading"><div><p class="eyebrow">RECENT ACTIVITY</p><h2>Evidence trail</h2></div><button class="text-button">View all activity ↗</button></div><div class="activity-table"><div class="table-head"><span>EVENT</span><span>CASE</span><span>TIME</span><span>STATUS</span></div><div class="table-row"><span><b class="event-icon">⌁</b> Link confidence updated</span><span>CF-2026-184</span><span>08:42</span><span class="tag verified">Verified</span></div><div class="table-row"><span><b class="event-icon">▤</b> FIR document processed</span><span>CF-2026-201</span><span>08:19</span><span class="tag analyzing">Analyzing</span></div><div class="table-row"><span><b class="event-icon">⌖</b> Location cluster detected</span><span>CF-2026-156</span><span>Yesterday</span><span class="tag review">Needs review</span></div></div></section>
+        </section>
+
+        <section class="content-view" id="graph">
+          <div class="view-toolbar"><div class="filter-group"><button class="filter active">All entities</button><button class="filter">People</button><button class="filter">Organizations</button><button class="filter">Devices</button></div><button class="secondary" id="focus-link">◎ Focus high-risk path</button></div>
+          <section class="panel graph-full"><div class="panel-heading"><div><p class="eyebrow">DYNAMIC KNOWLEDGE GRAPH</p><h2>CF-2026-184: connection path</h2></div><span class="confidence">94% link confidence</span></div><div id="full-graph" class="network-canvas"></div><div class="graph-insight"><span class="insight-icon">✦</span><div><b>Explainable insight</b><p>Three independent evidence sources connect the focal individuals through a shared device and repeated location overlap.</p></div><button class="text-button" data-view="cases">Inspect evidence →</button></div></section>
+        </section>
+
+        <section class="content-view" id="cases">
+          <div class="case-layout"><section class="panel finding-detail"><div class="panel-heading"><div><p class="eyebrow">HIGH PRIORITY · CF-2026-184</p><h2>Unusual cross-case connection</h2></div><span class="tag review">Needs review</span></div><p class="finding-copy">A newly ingested witness statement establishes an indirect connection between two previously unrelated investigations.</p><div class="evidence-chain"><div><span class="chain-number">01</span><b>Shared mobile identifier</b><p>Device D-774 appears in both case records.</p><small>CDR extract · Verified source</small></div><div><span class="chain-number">02</span><b>Recurring location overlap</b><p>Both subjects were present near the same location on 4 dates.</p><small>Cell-site metadata · 89% confidence</small></div><div><span class="chain-number">03</span><b>Corroborating narrative</b><p>Alias mentioned in the new statement matches an existing entity.</p><small>Witness statement · NLP extracted</small></div></div><div class="action-row"><button class="primary" id="assign-btn">Assign for review</button><button class="secondary">Export evidence bundle</button></div></section><aside class="panel case-side"><p class="eyebrow">LINK RATIONALE</p><h3>Why was this flagged?</h3><div class="score-ring"><span>94<small>/100</small></span></div><ul><li>3 independent source types</li><li>2 related open investigations</li><li>Connection is recent and recurring</li></ul><hr/><p class="eyebrow">RELATED CASES</p><button class="related-case">CF-2026-156 <span>High</span></button><button class="related-case">CF-2026-201 <span>Medium</span></button></aside></div>
+        </section>
+
+        <section class="content-view" id="map">
+          <section class="panel map-panel"><div class="panel-heading"><div><p class="eyebrow">LOCATION INTELLIGENCE</p><h2>Observed activity clusters</h2></div><div class="legend"><span><i class="dot critical"></i>High priority</span><span><i class="dot org"></i>Reported location</span></div></div><div class="map-grid"><div class="map-lines"></div><div class="cluster c1"><b>7</b><span>Central District</span></div><div class="cluster c2"><b>4</b><span>North Zone</span></div><div class="cluster c3"><b>3</b><span>East Corridor</span></div><div class="map-label l1">RING ROAD</div><div class="map-label l2">RIVERFRONT</div></div></section>
+        </section>
+      </main>
+    </div>
+    <div class="modal-backdrop" id="modal"><div class="modal"><button class="close" id="close-modal">×</button><p class="eyebrow">CASE INGESTION</p><h2>Add investigation material</h2><p>Drop an FIR, report, or structured case export. ByteForge will extract entities, relationships, and evidence provenance.</p><label class="upload-zone"><input type="file" id="file-input" accept=".pdf,.doc,.docx,.txt,.csv"/><span>↑</span><b>Choose a file</b><small>PDF, DOCX, TXT or CSV · demo mode</small></label><button class="primary wide" id="run-analysis">Run entity analysis</button></div></div>
+    <div class="toast" id="toast">Case assigned to your review queue.</div>
+    <script src="app.js"></script>
+  </body>
+</html>
